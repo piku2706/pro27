@@ -3,225 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>production27</title>
+    <title>prode27</title>
     <link rel="icon" href="julogo.png" type="image/png">
     <style>
-        body{
-            background-color: white;
-            padding: 0px;
+        body {
+          font-family: "Lato", sans-serif;
+          margin: 0px;
         }
-        #name{
-            position: relative;
-            font-size: 1.75rem;
-            border-bottom: solid 1px blue;
-            padding-left: 5px;
-            bottom: 0px;
+        
+        .header{
+            display: flex;
+            position: fixed;
+            z-index: 5;
+            height: 60px;
             width: 100%;
+            background-color: whitesmoke;
+            margin-bottom: 20px;
+
         }
-        #name span{
-            font-size: 1.06rem;
+        .sidebar {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #111;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
         }
-        .panel{
+        
+        .sidebar a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+        }
+        
+        .sidebar a:hover {
+          color: #f1f1f1;
+        }
+        
+        .sidebar .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        
+        .openbtn {
+          position: relative;
+          bottom: 3px;
+          font-size: 20px;
+          cursor: pointer;
+          background-color: transparent;
+          color: black;
+          padding-bottom: 0px ;
+          border: none;
+        }
+        
+        #main {
+          transition: margin-left .5s;
+          padding: 16px;
+        }
+        .img1{
+            background-color: none;
+            height: 300px;
+            width: 100%;
             position: relative;
-            bottom: 4px;
-            height: 40px;
-            white-space: nowrap;
-            overflow-x: auto;
-            overflow-y: hidden;
-        }
-        .panel a{
-            background-color: white;
-            border: none;
-            height: 32px;
-            border-radius: 16px;
-            padding: 10px;
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.123);
-            margin-left: 10px;
-            text-decoration: none;
-        }
-        .urgents{
-            height: auto;
-            width: 80%;
-            padding: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.123);
-            margin-top: 15px;
+            top: -160px;
+            background-image: url(proddepart.jpg);
+            background-size: cover;
         }
         .content{
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
         }
-        .content p{
-            font-size: 1.25rem;
-        }
-        #cpnm p{
-            font-size: 1.25rem;
-        }
-        #math p{
-            font-size: 1.25rem;
-        }
-        #electrical p{
-            font-size: 1.25rem;
-        }
         .notices{
-            height: auto;
+            height: 220px;
             width: 80%;
-            padding: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.123);
-            margin-top: 25px;
+            background-color: rgba(255, 255, 255, 0.884);
+            position: relative;
+            top: 220px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
         }
-        h3{
-            text-decoration: none;
-        }
-        #cpnm{
-            height: auto;
-            width: 80%;
-            padding: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.123);
-            margin-top: 25px;
-        }
-        #math{
-            height: auto;
-            width: 80%;
-            padding: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.123);
-            margin-top: 25px;
-        }
-        #drawing{
-            height: auto;
-            width: 80%;
-            padding: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.123);
-            margin-top: 25px;
-        }
-        #electrical{
-            height: auto;
-            width: 80%;
-            padding: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.123);
-            margin-top: 25px;
-        }
-        #electronics{
-            height: auto;
-            width: 80%;
-            padding: 10px;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.123);
-            margin-top: 25px;
-        }
-        button{
-            height: auto;
+
+        .explore{
             width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding-right: 15px;
+        }
+        .sideex{
+            height: auto;
+            width: 150px;
+            margin: 15px;
+            background-color: white;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .sideex button{
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 7px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
             text-align: left;
-            padding: 8px;
-            font-size: 0.87rem;
+            padding-left: 15px;
+            background-color: white;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        .imgbox{
+            position: relative;
+            top: 20px;
+            width: 100%;
+            height: 280px;
+            /* background-color: red; */
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .box{
+            width: 100%;
+            height: 130px;
+            background-color: red;
             border-radius: 6px;
-            margin-bottom: 14px;
         }
-        span{
-        color : red;
+        .box1{
+            background-image: url(prodeclass.jpg);
+            background-size: cover;
         }
-    </style>
+        .box2{
+            background-image: url(sports.jpg);
+            background-size: cover;
+        }
+        </style>
 </head>
 <body>
-    <p id="name">
-        Production '27
-        <span>1st sem</span>
-    </p>
-    <div class="panel">
-        <a href='#drawing'>DRAWING</a>
-        <a href='#cpnm'>CPNM</a>
-        <a href='#math'>MATH</a>
-        <a href='#electrical'>ELECTRICAL</a>
-        <a href='#electronics'>ELECTRONICS</a>
+    <div class="header">
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
+          
+          <div id="main">
+            <button class="openbtn" onclick="openNav()">☰</button>  
+          </div>
+          
+        <h2 style="font-family: cursive; position: relative; top: -10px; ">
+            Production 27'
+        </h2>
     </div>
     <div class="content">
-        <div class="urgents">
-            <p>
-                <b>
-                    Urgents
-                </b>
-            </p>
-            <h4>
-                1.<span> Electrical DC machines 10 marks exam on 28th november.</span>
-            </h4>
-            <h4>
-                3. Engineering drawing , submit on 21st november.
-            </h4>
+        <div class="img1"></div>
+        <div class="notices">
+            <h3 style="text-align: center; font-family: cursive; font-size: 1.3rem;">
+                Notices
+            </h3>
+        </div>
     </div>
-    <div class="notices">
-        <p>
-            <b>
-                Notices & Updates
-            </b>
-        </p>
-        <h4>
-            > CPNM notes are uploaded
-        </h4>
-        <h4>
-            > Maths notes are uploaded
-        </h4>
-        <h4>
-            >GB Engineering Drawing pdf is uploaded
-        </h4>
+    <div class="content2">
+        <h2 style="font-family: cursive; position: relative; text-align: center;">
+            Explore More
+        </h2>
+        <div class="explore">
+            <div class="sideex">
+                <button>Tutors</button>
+                <button>Routine</button>
+                <button>Sports</button>
+                <button>CR Desk</button>
+                <button>Results</button>
+            </div>
+            <div class="imgbox">
+                <div class="box box1"></div>
+                <div class="box box2"></div>
+            </div>
+        </div>
     </div>
-
-<!-- Engineering Drawing -->
-
-    <div id="drawing">
-        <p>
-            <b>
-                Engineering Drawing
-            </b>
-        </p>
-            <button onclick="window.location.href='https://drive.google.com/file/d/1-ct0wEp6aDqy84Lh2ldiwaa0UxcJpwlY/view?usp=drivesdk';">1st class pdf of E.D.</button>
-    </div>
-
-<!-- COMPUTER PROGRAMMING AND NUMERICAL METHOD -->
-
-    <div id="cpnm">
-        <p>
-            <b>
-                CP&NM
-            </b>
-        </p>
-            <button onclick="window.location.href='https://drive.google.com/file/d/1-TtEGnTEAMV75sXsbFXgbH8eZZhdskU2/view?usp=drivesdk';">Notes of 3/11/2023</button>
-           <button onclick="window.location.href='https://drive.google.com/file/d/14R7q0CQo4Dd54e-rAV1a0m1bv-eS7jz1/view?usp=drivesdk';">Notes of 6/11/2023</button>
-    </div>
-
-<!-- MATHEMATICS -->
-
-    <div id="math">
-        <p>
-            <b>
-                Mathematics
-            </b>
-        </p>
-        <button onclick="window.location.href='https://drive.google.com/file/d/1-ZcR7b3ABtyjqbW3H8qy503NRXgOumcz/view?usp=drivesdk';">Notes of 3/10/2023</button>
-    </div>
-
-<!-- Basic Electrical Engineering -->
-
-    <div id="electrical">
-        <p>
-            <b>
-                Electrical
-            </b>
-        </p>
-        <button onclick="window.location.href='https://drive.google.com/file/d/1POwDy4wrfUmsesRrn2yFqHDLUXWiA8SK/view?usp=drivesdk';">Class 1 pdf</button>
-        <button onclick="window.location.href='https://drive.google.com/file/d/1ud17_u0Wr9qDqXqgSxPovISme8n1vx70/view?usp=drivesdk';">Class 2 pdf</button>
-        <button onclick="window.location.href='https://drive.google.com/file/d/1dPo3Y01cYM6k50gNt9VRfZsyJYouwUub/view?usp=drivesdk';">Class 3 pdf</button>
-        <button onclick="window.location.href='https://drive.google.com/file/d/1qYna4YOCrXF7wJQYbz_3sQ-bP8rm2Kir/view?usp=drivesdk';">Class 4 pdf</button>
- <button onclick="window.location.href='https://drive.google.com/file/d/14Hbx4HukETpLW2Y_F9WLW681SrwdrDpa/view?usp=drivesdk';">Electrical Hand Written Notes module 1</button>
-       <button onclick="window.location.href='https://drive.google.com/file/d/14JwlbaXT4Uj5EJaOnqpF8h2sR1cU_3kF/view?usp=drivesdk';">Electrical Hand Written Notes module 2</button>
-    </div>
-    <div id="electronics">
-        <p>
-            <b>
-                Electronics
-            </b>
-        </p>
-        <button onclick="window.location.href='https://drive.google.com/file/d/14QR6qTt2JGtdqrM48mfoJR3PfZywle0d/view?usp=drivesdk';">Electronics Hand Written Notes</button>
-    </div>
-    </div>
+    <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
 </body>
 </html>
